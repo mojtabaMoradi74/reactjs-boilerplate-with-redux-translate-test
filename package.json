@@ -2,9 +2,10 @@
   "name": "react-js-boilerplate-with-redux-translate",
   "author": {
     "name": "mojtaba moradi",
-    "email": "moradi.mojtaba2674@gmail.com"
+    "email": "moradi.mojtaba2674@gmail.com",
+    "date": "2021/9/8"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "-": "0.0.1",
@@ -15,6 +16,9 @@
     "aphrodite": "^2.4.0",
     "axios": "^0.21.4",
     "bootstrap": "^5.1.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "jest": "^27.2.0",
     "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
@@ -57,6 +61,7 @@
     ]
   },
   "devDependencies": {
+    "babel-jest": "^27.2.0",
     "redux-devtools-extension": "^2.13.9"
   }
 }

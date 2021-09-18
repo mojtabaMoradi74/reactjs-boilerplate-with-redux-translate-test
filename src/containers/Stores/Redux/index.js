@@ -7,7 +7,7 @@ import styles from './styles';
 import { useIntl } from 'react-intl';
 import { addTodo, deleteTodo, toggleComplete } from "./store";
 
-const Redux = (props) => {
+const Redux = () => {
 
     const ReduxState = useSelector(state => state?.reduxTodo);
 

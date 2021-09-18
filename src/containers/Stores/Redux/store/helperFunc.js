@@ -1,7 +1,8 @@
 import { uniqId } from "utils/uniqId";
 
 export const addTodoFunc = (state, action) => {
-    const todo = { id: uniqId(), title: action.payload.title, completed: false, };
+    const { id, title, completed } = action.payload;
+    const todo = { id: id || uniqId(), title: title, completed: completed || false, };
     state.data.push(todo);
 };
 

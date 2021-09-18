@@ -7,9 +7,11 @@ import { BrowserRouter } from 'react-router-dom';
 import LocalizedRouter from 'containers/LocalizedRouter';
 import { Provider } from "react-redux";
 import { appStrings } from './hook/i18nConfigs/index.js';
-import store from "./store";
+import configStore from 'store/configStore';
 
 const rootElement = document.getElementById("root");
+const preloadedState = {};
+const store = configStore(preloadedState);
 
 ReactDOM.render(
   <BrowserRouter>

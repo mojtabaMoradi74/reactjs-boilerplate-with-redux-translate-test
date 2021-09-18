@@ -1,6 +1,6 @@
 import { uniqId } from "utils/uniqId";
 
-let todos = [
+export let todos = [
     {
         id: uniqId(),
         title: 'todo 1',
