@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import styles from './styles';
 import { useIntl } from 'react-intl';
 import { addTodo, deleteTodo, toggleComplete } from "./store";
+import H1 from "reusableComponent/H1";
 
 const Redux = () => {
 
@@ -23,7 +24,7 @@ const Redux = () => {
     }
 
 
-    const handleCheckboxClick = (id, completed) => {
+    const handleCheckboxClick = ({ id, completed }) => {
         dispatch(toggleComplete({ id, completed: !completed }));
     };
 
@@ -34,7 +35,7 @@ const Redux = () => {
     return (
         <styles.div_container className='bg-white p-4 mt-5'>
             {/* <ListTodo {...{ action: sagaActions, renderList }} /> */}
-            <h1>{formatMessage({ id: 'redux.headTitle' }) + " " + formatMessage({ id: 'withAuthor', }, { author: formatMessage({ id: 'redux.title' }) })}</h1>
+            <H1>{formatMessage({ id: 'redux.headTitle' }) + " " + formatMessage({ id: 'withAuthor', }, { author: formatMessage({ id: 'redux.title' }) })}</H1>
             <AddTodoForm {...{ submitted }} />
             <TodoList {...{ todos: ReduxState?.data, handleCheckboxClick, handleDeleteClick }} />
             <TotalCompleteItems {...{ todos: completeTodo }} />

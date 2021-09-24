@@ -10,7 +10,7 @@ import shadow from './shadow';
 */
 
 const themes = (language, mod) => {
-    console.log({ language, mod });
+    // console.log({ language, mod });
 
     const data = {
         color: colors(mod),
@@ -34,6 +34,11 @@ const themes = (language, mod) => {
             large: pxToRE(32),
             xLarge: pxToRE(64),
             xxLarge: pxToRE(124),
+        },
+        zIndex: {
+            top: 50,
+            middle: 30,
+            bottom: 10,
         },
         direction: language?.direction || "ltr",
     }

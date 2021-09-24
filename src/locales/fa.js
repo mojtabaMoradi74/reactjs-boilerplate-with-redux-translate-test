@@ -1,7 +1,7 @@
 const baseStrings = {
   /** Page content */
   'home.title': 'صفحه اصلی',
-  'home.content': 'از اینکه بویلرپلت ریکت را مشاهده کردید متشکریم.',
+  'home.content': 'از اینکه بویلرپلت ریکت را بازدید میکنید متشکریم.',
   'summary.title': 'خلاصه',
   'redux.title': 'ریداکس',
   'redux.headTitle': 'لیست کار من',

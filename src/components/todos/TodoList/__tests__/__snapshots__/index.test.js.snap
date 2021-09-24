@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoList component Checking element Should not throw a warning 1`] = `
+<ul
+  className="list-group"
+>
+  <li
+    className="list-group-item list-group-item-success"
+  >
+    <div
+      className="d-flex justify-content-between"
+    >
+      <span
+        className="d-flex align-items-center"
+      >
+        <input
+          className="mr-3"
+          defaultChecked={true}
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <span
+          className="ml-1 mr-1"
+        >
+          todo 1
+        </span>
+      </span>
+      <button
+        aria-label={null}
+        className="btn btn-danger"
+        onClick={[Function]}
+        type="button"
+      >
+        delete
+      </button>
+    </div>
+  </li>
+  <li
+    className="list-group-item false"
+  >
+    <div
+      className="d-flex justify-content-between"
+    >
+      <span
+        className="d-flex align-items-center"
+      >
+        <input
+          className="mr-3"
+          defaultChecked={false}
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <span
+          className="ml-1 mr-1"
+        >
+          todo 2
+        </span>
+      </span>
+      <button
+        aria-label={null}
+        className="btn btn-danger"
+        onClick={[Function]}
+        type="button"
+      >
+        delete
+      </button>
+    </div>
+  </li>
+  <li
+    className="list-group-item false"
+  >
+    <div
+      className="d-flex justify-content-between"
+    >
+      <span
+        className="d-flex align-items-center"
+      >
+        <input
+          className="mr-3"
+          defaultChecked={false}
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <span
+          className="ml-1 mr-1"
+        >
+          todo 3
+        </span>
+      </span>
+      <button
+        aria-label={null}
+        className="btn btn-danger"
+        onClick={[Function]}
+        type="button"
+      >
+        delete
+      </button>
+    </div>
+  </li>
+  <li
+    className="list-group-item false"
+  >
+    <div
+      className="d-flex justify-content-between"
+    >
+      <span
+        className="d-flex align-items-center"
+      >
+        <input
+          className="mr-3"
+          defaultChecked={false}
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <span
+          className="ml-1 mr-1"
+        >
+          todo 4
+        </span>
+      </span>
+      <button
+        aria-label={null}
+        className="btn btn-danger"
+        onClick={[Function]}
+        type="button"
+      >
+        delete
+      </button>
+    </div>
+  </li>
+  <li
+    className="list-group-item false"
+  >
+    <div
+      className="d-flex justify-content-between"
+    >
+      <span
+        className="d-flex align-items-center"
+      >
+        <input
+          className="mr-3"
+          defaultChecked={false}
+          onClick={[Function]}
+          type="checkbox"
+        />
+        <span
+          className="ml-1 mr-1"
+        >
+          todo 5
+        </span>
+      </span>
+      <button
+        aria-label={null}
+        className="btn btn-danger"
+        onClick={[Function]}
+        type="button"
+      >
+        delete
+      </button>
+    </div>
+  </li>
+</ul>
+`;

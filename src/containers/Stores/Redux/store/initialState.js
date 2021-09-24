@@ -1,6 +1,6 @@
 import { uniqId } from "utils/uniqId";
 
-export let todos = [
+export let todos_data = [
     {
         id: uniqId(),
         title: 'todo 1',
@@ -32,7 +32,7 @@ export let todos = [
 const initialState = {
     isFetching: true,
     errorMessage: "",
-    data: todos,
+    data: todos_data,
 };
 export default initialState
 

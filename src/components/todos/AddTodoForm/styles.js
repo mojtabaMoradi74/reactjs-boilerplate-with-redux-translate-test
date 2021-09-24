@@ -7,7 +7,7 @@ let styles = {
    margin: ${theme.spacing.tiny.rem} 0;
   `}
   `,
-  label: styled.form`
+  label: styled.label`
   ${({ theme }) => theme && css`
    margin: ${theme.spacing.tiny.rem} 0;
   `}

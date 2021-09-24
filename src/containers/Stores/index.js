@@ -30,7 +30,6 @@ const Stores = () => {
         <div>
             <styles.div_container>
                 <styles.ul_wrap>
-
                     {Children.toArray(Links.map((elem) => (
                         <styles.li_item>
                             <LocalizedLinks>
@@ -40,7 +39,6 @@ const Stores = () => {
                             </LocalizedLinks>
                         </styles.li_item>
                     )))}
-
                 </styles.ul_wrap>
             </styles.div_container>
 

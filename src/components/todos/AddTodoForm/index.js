@@ -10,7 +10,13 @@ const AddTodoForm = ({ submitted }) => {
 
 	const onSubmit = (event) => {
 		event.preventDefault();
-		if (value) submitted(value)
+		submitted(value)
+		// try {
+		// 	submitted(value)
+		// } catch (err) {
+		// 	console.log('Submit error: ', err);
+		// }
+
 	};
 
 
@@ -20,7 +26,7 @@ const AddTodoForm = ({ submitted }) => {
 			<styles.div_flex>
 				<input
 					type='text'
-					className='form-control  '
+					className='form-control  add-input'
 					placeholder={`${formatMessage({ id: 'add.todo' })}...`}
 					value={value}
 					onChange={(event) => setValue(event.target.value)}
