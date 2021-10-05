@@ -16,7 +16,8 @@ const baseStrings = {
   'en': 'انگلیسی',
   'fa': 'فارسی',
   'error.content': 'این صفحه وجود ندارد. بعدا دوباره تلاش کنید.',
-  'withAuthor': 'با {author}'
+  'withAuthor': 'با {author}',
+  'counter': 'شمارنده'
 };
 
 export const fa = baseStrings;

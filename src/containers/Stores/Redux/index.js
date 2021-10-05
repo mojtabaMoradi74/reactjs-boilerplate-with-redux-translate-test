@@ -14,32 +14,24 @@ const Redux = () => {
 
     const completeTodo = ReduxState?.data?.filter((todo) => todo.completed === true)
 
-
     const dispatch = useDispatch();
 
     const { formatMessage } = useIntl();
 
-    function submitted(value) {
-        dispatch(addTodo({ title: value }))
-    }
+    const submitted = (value) => dispatch(addTodo({ title: value }))
 
+    const handleCheckboxClick = ({ id, completed }) => dispatch(toggleComplete({ id, completed: !completed }));
 
-    const handleCheckboxClick = ({ id, completed }) => {
-        dispatch(toggleComplete({ id, completed: !completed }));
-    };
-
-    const handleDeleteClick = (id) => {
-        dispatch(deleteTodo({ id }));
-    };
+    const handleDeleteClick = (id) => dispatch(deleteTodo({ id }));
 
     return (
         <styles.div_container className='bg-white p-4 mt-5'>
-            {/* <ListTodo {...{ action: sagaActions, renderList }} /> */}
             <H1>{formatMessage({ id: 'redux.headTitle' }) + " " + formatMessage({ id: 'withAuthor', }, { author: formatMessage({ id: 'redux.title' }) })}</H1>
             <AddTodoForm {...{ submitted }} />
             <TodoList {...{ todos: ReduxState?.data, handleCheckboxClick, handleDeleteClick }} />
             <TotalCompleteItems {...{ todos: completeTodo }} />
         </styles.div_container>
     );
+
 }
 export default Redux;

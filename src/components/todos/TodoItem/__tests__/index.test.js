@@ -1,13 +1,13 @@
 import { shallow, mount, render } from 'enzyme';
 import { todos_data } from 'containers/Stores/Redux/store/initialState';
-import { checkProps, ReactIntProvider } from 'utils/testing';
+import { checkProps, Providers } from 'utils/testing';
 import TodoItem from 'components/todos/TodoItem';
 
 
 const items = todos_data;
 const current_items = items[0];
 
-const renderComponent = (props = {}) => mount(ReactIntProvider(<TodoItem  {...current_items} {...props} />));
+const renderComponent = (props = {}) => mount(<Providers><TodoItem  {...current_items} {...props} /></Providers>);
 
 
 describe('TodoItem component', () => {

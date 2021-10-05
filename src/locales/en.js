@@ -16,7 +16,8 @@ const baseStrings = {
   'en': 'english',
   'fa': 'persian',
   'error.content': 'This page decided to take a vacation. Try again later.',
-  'withAuthor': 'with {author}'
+  'withAuthor': 'with {author}',
+  'counter': 'counter'
 };
 
 export const en = baseStrings;

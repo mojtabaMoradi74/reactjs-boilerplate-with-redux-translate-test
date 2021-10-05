@@ -8,6 +8,7 @@ const AppRoute = [
     { href: routes.home, title: 'home.title', exact: true },
     { href: routes.summary, title: 'summary.title' },
     { href: routes.redux, title: 'redux.title' },
+    { href: routes.counter, title: 'counter' },
 ]
 
 

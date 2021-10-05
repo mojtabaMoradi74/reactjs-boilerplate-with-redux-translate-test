@@ -13,6 +13,7 @@ import { uniqId } from "utils/uniqId";
 import Redux from 'containers/Stores/Redux';
 import ReduxThunk from "containers/Stores/ReduxThunk";
 import ReduxSaga from "containers/Stores/ReduxSaga";
+import Counter from "containers/Stores/ReduxCounter";
 
 
 const Stores = () => {
@@ -24,6 +25,7 @@ const Stores = () => {
         { href: routes.redux, title: 'redux.title', exact: true, component: Redux },
         { href: routes.thunk, title: 'thunk.title', component: ReduxThunk },
         { href: routes.saga, title: 'saga.title', component: ReduxSaga },
+        { href: routes.counter, title: 'counter', component: Counter },
     ]
 
     return (

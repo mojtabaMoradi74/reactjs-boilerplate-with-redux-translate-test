@@ -9,8 +9,8 @@ const reduxTodoSlice = createSlice({
     reducers: {},
     extraReducers: {
         [getTodosAsync.fulfilled]: (state, action) => {
-            console.log({ state, action }, { ...state, data: action.payload.todos }, 'getTodosAsync.fulfilled');
-            return { ...state, data: action.payload.todos }
+            console.log({ state, action }, { ...state, data: action?.payload?.todos }, 'getTodosAsync.fulfilled');
+            return { ...state, data: action?.payload?.todos }
         },
         [addTodoAsync.fulfilled]: (state, action) => {
             state.data.push(action.payload.todo);

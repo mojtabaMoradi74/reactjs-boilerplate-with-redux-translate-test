@@ -4,7 +4,7 @@ import actionTypes from './actionTypes';
 import { getTodo, addTodo, deleteTodo, toggleComplete } from "../store";
 
 
-function* getTodoSaga() {
+export function* getTodoSaga() {
     try {
         let resp = yield call(fetchTodoApi);
         yield put(getTodo({ todos: resp.data }));
@@ -13,7 +13,7 @@ function* getTodoSaga() {
     }
 }
 
-function* addTodoSaga(payload) {
+export function* addTodoSaga(payload) {
     try {
         let resp = yield call(postTodoApi, { title: payload.title });
         yield put(addTodo({ todo: resp.data }));
@@ -22,7 +22,7 @@ function* addTodoSaga(payload) {
     }
 }
 
-function* toggleCompleteSaga(payload) {
+export function* toggleCompleteSaga(payload) {
     try {
         let resp = yield call(patchTodoApi, { id: payload.id, completed: payload.completed });
         yield put(toggleComplete({ todo: resp.data }));
@@ -31,9 +31,9 @@ function* toggleCompleteSaga(payload) {
     }
 }
 
-function* deleteTodoSaga(payload) {
+export function* deleteTodoSaga(payload) {
     try {
-        let resp = yield call(deleteTodoApi, { id: payload.id });
+        yield call(deleteTodoApi, { id: payload.id });
         yield put(deleteTodo({ id: payload.id }));
     } catch (error) {
         console.log({ error });
@@ -42,7 +42,7 @@ function* deleteTodoSaga(payload) {
 
 export default function* rootSaga() {
     yield takeEvery(actionTypes.GET_SAGA_TODO_REQUEST, getTodoSaga);
-    yield takeEvery(actionTypes.POST_SAGA_TODO_REQUEST, addTodoSaga);
-    yield takeEvery(actionTypes.DELETE_SAGA_TODO_REQUEST, deleteTodoSaga);
-    yield takeEvery(actionTypes.PATCH_SAGA_TODO_COMPLETE_REQUEST, toggleCompleteSaga);
+    // yield takeEvery(actionTypes.POST_SAGA_TODO_REQUEST, addTodoSaga);
+    // yield takeEvery(actionTypes.DELETE_SAGA_TODO_REQUEST, deleteTodoSaga);
+    // yield takeEvery(actionTypes.PATCH_SAGA_TODO_COMPLETE_REQUEST, toggleCompleteSaga);
 }

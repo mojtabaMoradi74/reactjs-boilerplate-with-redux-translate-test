@@ -8,6 +8,8 @@ import { checkPropTypes } from './prototypesCheck';
 import { ThemeProvider } from "styled-components";
 import themes from 'style/themes';
 import { AppLanguages } from 'config/AppLanguage';
+import configStore from 'store/configStore';
+import { Provider } from 'react-redux';
 
 export const findByTestAttr = (component, attr) => {
     const wrapper = component.find(`[data-test='${attr}']`);
@@ -19,30 +21,33 @@ export const checkProps = (component, expectedProps) => {
     return propsErr;
 };
 
-// function ReactIntProvider(ui, { locale = 'en', ...renderOptions } = {}) {
-//     function Wrapper({ children }) {
-//         return <IntlProvider locale={locale}>{children}</IntlProvider>
-//     }
-//     return render(ui, { wrapper: Wrapper, ...renderOptions })
-// }
-
-// // re-export everything
-// export * from '@testing-library/react'
-
-// // override render method
-// export { ReactIntProvider }
-
-export const ReactIntProvider = (component, locale = 'en') => {
+export const ReactIntProvider = ({ children, locale = 'en' }) => {
     return (<IntlProvider locale={locale} messages={appStrings[locale]}>
-        {component}
+        {children}
     </IntlProvider>
     );
 };
 
 
-export const StyledThemeProvider = (component, locale = 'en') => {
+export const StyledThemeProvider = ({ children, locale = 'en' }) => {
     return (<ThemeProvider theme={themes(AppLanguages[locale], 'light')} >
-        {component}
+        {children}
     </ThemeProvider>
+    );
+};
+
+
+export const Providers = ({ children, locale = 'en', preloadedState = {} }) => {
+
+    const store = configStore(preloadedState);
+
+    return (
+        <Provider store={store}>
+            <IntlProvider locale={locale} messages={appStrings[locale]}>
+                <ThemeProvider theme={themes(AppLanguages[locale], 'light')} >
+                    {children}
+                </ThemeProvider>
+            </IntlProvider>
+        </Provider>
     );
 };

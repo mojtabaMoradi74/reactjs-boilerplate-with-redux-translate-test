@@ -1,20 +1,38 @@
-import Increase from "components/Increase";
 import React from "react";
-import { FormattedMessage } from 'react-intl';
 import styles from './styles';
+import Increase from "components/Increase";
+import { FormattedMessage, useIntl } from 'react-intl';
 
 const Home = () => {
+
+    const { formatMessage } = useIntl();
+
+
+    const incrementProps = {
+        // handleIncrement: () => dispatch(increment()),
+        // handleZero: () => dispatch(zero()),
+        // handleDecrement: () => dispatch(decrement()),
+        // handleCancelIncrementAsync: () => {
+        //     dispatch(actions.cancelIncrementAsync());
+        //     dispatch(cancelIncrementAsync())
+        // },
+        // handleIncrementAsync: () => dispatch(actions.incrementAsync({ value: 5 })),
+        // handleIncrementIfOdd: () => dispatch(incrementIfOdd()),
+        // count,
+        // countdown
+    }
+
 
     return (
         <styles.div_home_container>
             <styles.h1>
-                <FormattedMessage id="home.title" />
+                {formatMessage({ id: 'home.title' })}
             </styles.h1>
             <styles.div_content className={'content'}>
-                <FormattedMessage id="home.content" />
+                {formatMessage({ id: 'home.content' })}
             </styles.div_content>
 
-            <Increase />
+            {/* <Increase  {...incrementProps} /> */}
 
         </styles.div_home_container>
     );
