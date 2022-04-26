@@ -1,5 +1,5 @@
 import { mount } from 'enzyme';
-import { todos_data } from 'containers/Stores/Redux/store/initialState';
+import { todos_data } from 'containers/ReduxContainers/Redux/store/initialState';
 import { Providers, } from 'utils/testing';
 import AddTodoForm from 'components/todos/AddTodoForm';
 

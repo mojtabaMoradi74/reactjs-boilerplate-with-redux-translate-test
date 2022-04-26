@@ -2,7 +2,6 @@ import React from 'react'
 // import checkPropTypes from 'check-prop-types';
 // import { render } from '@testing-library/react'
 import { IntlProvider } from 'react-intl'
-import { appStrings } from 'hook/i18nConfigs/index.js';
 import { render } from 'enzyme';
 import { checkPropTypes } from './prototypesCheck';
 import { ThemeProvider } from "styled-components";
@@ -10,6 +9,8 @@ import themes from 'style/themes';
 import { AppLanguages } from 'config/AppLanguage';
 import configStore from 'store/configStore';
 import { Provider } from 'react-redux';
+import i18n from 'i18n';
+import { I18nextProvider } from 'react-i18next';
 
 export const findByTestAttr = (component, attr) => {
     const wrapper = component.find(`[data-test='${attr}']`);
@@ -22,12 +23,11 @@ export const checkProps = (component, expectedProps) => {
 };
 
 export const ReactIntProvider = ({ children, locale = 'en' }) => {
-    return (<IntlProvider locale={locale} messages={appStrings[locale]}>
+    return (<I18nextProvider i18n={i18n}>
         {children}
-    </IntlProvider>
+    </I18nextProvider>
     );
 };
-
 
 export const StyledThemeProvider = ({ children, locale = 'en' }) => {
     return (<ThemeProvider theme={themes(AppLanguages[locale], 'light')} >
@@ -43,11 +43,9 @@ export const Providers = ({ children, locale = 'en', preloadedState = {} }) => {
 
     return (
         <Provider store={store}>
-            <IntlProvider locale={locale} messages={appStrings[locale]}>
-                <ThemeProvider theme={themes(AppLanguages[locale], 'light')} >
-                    {children}
-                </ThemeProvider>
-            </IntlProvider>
+            <ThemeProvider theme={themes(AppLanguages[locale], 'light')} >
+                {children}
+            </ThemeProvider>
         </Provider>
     );
 };

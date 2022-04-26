@@ -6,8 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import LocalizedRouter from 'containers/LocalizedRouter';
 import { Provider } from "react-redux";
-import { appStrings } from './hook/i18nConfigs/index.js';
+import { appLocales } from './hook/i18nConfigs/index.js';
 import configStore from 'store/configStore';
+import i18n from "./i18n";
+import { I18nextProvider } from 'react-i18next';
 
 const rootElement = document.getElementById("root");
 const preloadedState = {};
@@ -16,11 +18,13 @@ const store = configStore(preloadedState);
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <LocalizedRouter appStrings={appStrings}>
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
-      </LocalizedRouter>
+      <I18nextProvider i18n={i18n}>
+        <LocalizedRouter appStrings={appLocales}>
+          <React.StrictMode>
+            <App />
+          </React.StrictMode>
+        </LocalizedRouter>
+      </I18nextProvider>
     </Provider>
   </BrowserRouter>, rootElement
 );

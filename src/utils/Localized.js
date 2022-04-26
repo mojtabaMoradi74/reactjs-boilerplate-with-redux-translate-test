@@ -1,25 +1,27 @@
 import React, { Children, cloneElement, isValidElement } from 'react';
 import { Switch } from 'react-router';
-import { useIntl } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 
 export const LocalizedRoutes = ({ children }) => {
 
-  const { locale } = useIntl();
+  const [_, i18n] = useTranslation();
 
   return (
     <Switch>
       {Children.map(children, child => isValidElement(child) ? cloneElement(child, {
-        ...child.props, ...(child.props.path !== undefined && { path: localizeRoutePath(child.props.path, locale) }),
+        ...child.props, ...(child.props.path !== undefined && { path: localizeRoutePath(child.props.path, i18n.language) }),
       }) : child)}
     </Switch>
   );
+
 };
 
 export const LocalizedLinks = ({ children }) => {
-  const { locale } = useIntl();
+  const [_, i18n] = useTranslation();
+
   return (
     Children.map(children, child => isValidElement(child) ? cloneElement(child, {
-      ...child.props, ...(child.props.to !== undefined && { to: localizeRoutePath(child.props.to, locale) }),
+      ...child.props, ...(child.props.to !== undefined && { to: localizeRoutePath(child.props.to, i18n.language) }),
     }) : child)
   );
 };
@@ -31,6 +33,7 @@ export const LocalizedLinks = ({ children }) => {
  * @param locale   en , de or ...
  * @returns Localized string path or path array
  */
+
 function localizeRoutePath(path, locale) {
 
   switch (typeof path) {

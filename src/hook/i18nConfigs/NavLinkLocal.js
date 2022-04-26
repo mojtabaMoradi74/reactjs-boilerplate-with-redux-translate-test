@@ -1,15 +1,14 @@
-import { useIntl } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import localizeRouteKey from 'utils/localizeRouteKey';
 
 
 const NavLinkLocal = ({ children, to, ...props }) => {
 
-    const { formatMessage, locale } = useIntl();
-
+    const [t, i18n] = useTranslation();
 
     return (
-        <NavLink {...props} to={localizeRouteKey(to, formatMessage, locale)}>
+        <NavLink {...props} to={localizeRouteKey(to, t, i18n.language)}>
             {children}
         </NavLink>
     )

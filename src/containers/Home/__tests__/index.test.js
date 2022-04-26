@@ -20,11 +20,11 @@ describe('<Home />', () => {
         });
 
         it('h1', () => {
-            expect(wrapper.find('h1').text()).toEqual(en['home.title']);
+            expect(wrapper.find('h1').text()).toEqual(en.translation.home.title);
         });
 
         it('div', () => {
-            expect(wrapper.find('.content').at(0).text()).toEqual(en['home.content']);
+            expect(wrapper.find('.content').at(0).text()).toEqual(en.translation.home.content);
         });
 
     });

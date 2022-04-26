@@ -2,10 +2,11 @@ import React from "react";
 import styles from './styles';
 import Increase from "components/Increase";
 import { FormattedMessage, useIntl } from 'react-intl';
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
 
-    const { formatMessage } = useIntl();
+    const [t] = useTranslation();
 
 
     const incrementProps = {
@@ -26,10 +27,11 @@ const Home = () => {
     return (
         <styles.div_home_container>
             <styles.h1>
-                {formatMessage({ id: 'home.title' })}
+                {t('home.title')}
             </styles.h1>
             <styles.div_content className={'content'}>
-                {formatMessage({ id: 'home.content' })}
+                {t('home.content')}
+
             </styles.div_content>
 
             {/* <Increase  {...incrementProps} /> */}

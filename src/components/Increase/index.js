@@ -2,11 +2,11 @@ import React from "react";
 import ButtonAnimationOne from "reusableComponent/ButtonHoverOne";
 import styles from './styles';
 const Increase = ({ handleIncrement, handleZero, handleDecrement, handleCancelIncrementAsync, handleIncrementAsync, handleIncrementIfOdd, count, countdown }) => {
-
+    console.log({ handleIncrement, handleZero, handleDecrement, handleCancelIncrementAsync, handleIncrementAsync, handleIncrementIfOdd, count, countdown });
 
     return (
         <styles.div_increase_container>
-            <styles.span>{count}</styles.span>
+            <styles.span className="show-count">{count}</styles.span>
             <styles.div_buttons_container>
                 <ButtonAnimationOne className="count-up" type="button" onClick={handleIncrement}><span>Count Up</span></ButtonAnimationOne>
                 <ButtonAnimationOne className="zero-count" type="button" onClick={handleZero}><span>Zero</span></ButtonAnimationOne>
