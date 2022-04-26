@@ -14,13 +14,13 @@ const onRequestSuccess = (config) => {
 };
 
 const onResponseSuccess = ((response) => {
-    console.log({ response });
+    // console.log({ response });
 
     return response;
 });
 
 const onResponseError = (error) => {
-    console.log({ error });
+    // console.log({ error });
     if (error.response.status == 401) {
         localStorage.removeItem(token);
         // window.location = routes.LOGIN;

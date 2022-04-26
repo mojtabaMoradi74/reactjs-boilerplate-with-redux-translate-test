@@ -1,11 +1,11 @@
 import { mount } from 'enzyme';
-import { todos_data } from 'containers/Stores/Redux/store/initialState';
-import { ReactIntProvider, StyledThemeProvider } from 'utils/testing';
+import { todos_data } from 'containers/ReduxContainers/Redux/store/initialState';
+import { Providers, } from 'utils/testing';
 import AddTodoForm from 'components/todos/AddTodoForm';
 
 const items = todos_data;
 const current_items = items[0];
-const wrapComponent = (props = {}) => ReactIntProvider(StyledThemeProvider(<AddTodoForm  {...current_items} {...props} />))
+const wrapComponent = (props = {}) => <Providers><AddTodoForm  {...current_items} {...props} /></Providers>
 
 
 describe('AddTodoForm component', () => {

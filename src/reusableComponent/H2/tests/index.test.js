@@ -9,6 +9,7 @@ const setUp = (props = {}) => {
   return component;
 };
 
+
 describe('H2 Element', () => {
 
 

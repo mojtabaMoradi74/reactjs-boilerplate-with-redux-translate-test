@@ -6,6 +6,8 @@ const routes = {
     redux: '/redux',
     thunk: '/redux/thunk',
     saga: '/redux/saga',
+    counter: '/counter',
+    reduxCounter: '/redux/counter'
 }
 export default routes
 

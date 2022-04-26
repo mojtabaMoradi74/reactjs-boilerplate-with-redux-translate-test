@@ -1,11 +1,11 @@
 import React from 'react';
-import { useIntl } from 'react-intl';
 import { Button } from 'reactstrap';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 const TodoItem = ({ id, title, completed, handleCheckboxClick = () => { }, handleDeleteClick = () => { } }) => {
 
-	const { formatMessage } = useIntl();
+	const [t] = useTranslation();
 
 	return (
 		<li className={`list-group-item ${completed && 'list-group-item-success'}`}>
@@ -20,7 +20,7 @@ const TodoItem = ({ id, title, completed, handleCheckboxClick = () => { }, handl
 					<span className='ml-1 mr-1'>{title}</span>
 				</span>
 
-				<Button onClick={() => handleDeleteClick({ id })} color="danger">{formatMessage({ id: 'delete' })}</Button>
+				<Button onClick={() => handleDeleteClick({ id })} color="danger">{t('global.delete')}</Button>
 			</div>
 		</li>
 	);

@@ -1,14 +1,14 @@
 import React from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 
 const Summary = () => {
 
-  const intl = useIntl();
+  const [t] = useTranslation();
 
   return (
     <section>
       <h1>
-        <FormattedMessage id="summary.title" />
+        {t('summary.title')}
       </h1>
       <div>
 

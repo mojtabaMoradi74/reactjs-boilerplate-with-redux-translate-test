@@ -1,13 +1,16 @@
-import todoSaga from "containers/Stores/ReduxSaga/store";
-import todoThunk from "containers/Stores/ReduxThunk/store";
-import reduxTodo from "containers/Stores/Redux/store";
+import { combineReducers } from "redux";
+import todoThunk from "containers/ReduxContainers/ReduxThunk/store/reducer";
+import todoSaga from "containers/ReduxContainers/ReduxSaga/store/reducer";
+import reduxTodo from "containers/ReduxContainers/Redux/store/reducer";
+import count from "containers/ReduxContainers/ReduxCounter/store";
 
 
-const rootReducer = {
-  todoSaga,
+const rootReducer = combineReducers({
   todoThunk,
-  reduxTodo
-}
+  reduxTodo,
+  todoSaga,
+  ...count
+})
 
 
 export default rootReducer;

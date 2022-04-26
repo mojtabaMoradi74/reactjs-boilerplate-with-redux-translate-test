@@ -1,9 +1,13 @@
 import { AppLanguages } from 'config/AppLanguage';
 import React from 'react';
-import { IntlProvider } from 'react-intl';
-import { Route, Redirect } from 'react-router-dom';
 
-const LocalizedRouter = ({ children, appStrings }) => {
+import { Route, Redirect } from 'react-router-dom';
+import { withTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+
+const LocalizedRouter = ({ children }) => {
+
+  const [t, i18next] = useTranslation();
 
   return (
     <Route path="/:lang([a-zA-Z]{2})">
@@ -40,7 +44,6 @@ const LocalizedRouter = ({ children, appStrings }) => {
 
         // ------------------------------------------------------ change url
 
-
         if (!pathname.includes(`/${lang}`)) {
           const route = pathname;
           let newPathname = `/${lang}`;
@@ -48,16 +51,14 @@ const LocalizedRouter = ({ children, appStrings }) => {
           return <Redirect to={{ pathname: newPathname, search }} />
         }
 
+
+        if (lang !== i18next.language) i18next.changeLanguage(lang)
         // ------------------------------------------------------
 
-        return (
-          <IntlProvider locale={lang} messages={appStrings[lang]}>
-            {children}
-          </IntlProvider>
-        );
+        return children;
 
       }}
     </Route>
   );
 }
-export default LocalizedRouter
+export default withTranslation()(LocalizedRouter)

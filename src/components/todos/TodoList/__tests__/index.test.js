@@ -1,7 +1,7 @@
 import { mount } from 'enzyme';
 import TodoList from 'components/todos/TodoList';
-import { todos_data } from 'containers/Stores/Redux/store/initialState';
-import { checkProps, ReactIntProvider } from 'utils/testing';
+import { todos_data } from 'containers/ReduxContainers/Redux/store/initialState';
+import { checkProps, Providers } from 'utils/testing';
 // import renderer from 'react-test-renderer';
 
 describe('TodoList component', () => {
@@ -10,7 +10,7 @@ describe('TodoList component', () => {
     let wrapper;
 
     beforeEach(() => {
-        wrapper = mount(ReactIntProvider(<TodoList todos={items} />))
+        wrapper = mount(<Providers><TodoList todos={items} /></Providers>)
     });
 
     describe('Checking PropTypes', () => {
